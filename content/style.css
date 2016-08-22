@@ -132,7 +132,7 @@ nav a:hover{
     to {opacity: 1}
 }
 .forMe{
-    background: url('images/forMe_back.png') no-repeat;
+    background: url('../content/images/forMe_back.png') no-repeat;
     width: 100%;
     height: 402px;
     margin: 0px;
@@ -170,7 +170,7 @@ nav a:hover{
     font-size: 22pt;
 }
 .forMeText li{
-    list-style-image: url('images/bullet.png');
+    list-style-image: url('../content/images/bullet.png');
     padding-bottom: 10px;
 }
 .anchor{
@@ -190,7 +190,7 @@ nav a:hover{
     font-size: 30pt;
 }
 .catLinks{
-    display: table;
+    display: inline;
     margin: 0 auto;
 }
 .cat{
@@ -230,10 +230,10 @@ nav a:hover{
     opacity: 1;
 }
 .catTitle span{
-    left: 0;
+    left: 20px;
     position: inherit;
     top: 65px;
-    width: 300px;
+    width: 250px;
     font-size: 19pt;
 }
 .catTitle h4{
