@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45ed59f9-3e6c-41be-a345-fe3b4853c1d5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Categories/BirthdayCakes.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Categories/Cakes.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Categories/Cookies.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Categories/Dishes.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Categories/Muffins.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Categories/Other.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Mony.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Slider/Slide1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Slider/Slide2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Slider/Slide3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Slider/Slide4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Slider/Slide5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/bullet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/forMe_back.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/profile-round.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/profile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DB/database.sql" afterPath="$PROJECT_DIR$/DB/database.sql" />
     </list>
     <ignored path="SoftUni.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +38,7 @@
             <state relative-caret-position="17">
               <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
               <folding>
-                <marker date="1471285619837" expanded="true" signature="1657:1712" ph="..." />
+                <marker date="1471860976769" expanded="true" signature="1657:1712" ph="..." />
               </folding>
             </state>
           </provider>
@@ -366,12 +348,12 @@
       <workItem from="1471083708676" duration="15613000" />
       <workItem from="1471284810026" duration="2305000" />
       <workItem from="1471710411852" duration="621000" />
-      <workItem from="1471860847034" duration="27000" />
+      <workItem from="1471860847034" duration="605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71390000" />
+    <option name="totallyTimeSpent" value="71968000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -383,7 +365,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="921" extended-state="7" />
+    <frame x="-8" y="-8" width="1696" height="921" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22677262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -686,7 +668,7 @@
         <state relative-caret-position="17">
           <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
           <folding>
-            <marker date="1471285619837" expanded="true" signature="1657:1712" ph="..." />
+            <marker date="1471860976769" expanded="true" signature="1657:1712" ph="..." />
           </folding>
         </state>
       </provider>
