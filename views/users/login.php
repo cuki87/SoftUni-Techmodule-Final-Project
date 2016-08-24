@@ -1,5 +1,11 @@
-<?php $this->title = 'Login'; ?>
+<?php $this->title = 'Вход - Кухнята на Мони';
 
-<h1><?= htmlspecialchars($this->title) ?></h1>
+$this->heading = str_replace(" - Кухнята на Мони","",$this->title);
+?>
+<h1><?= htmlspecialchars($this->heading) ?></h1>
 
-<!-- TODO: login form will come here ... -->
+<form method="post" class="usersForm">
+    <input type="text" name="username" placeholder="Потребителско име"><br>
+    <input type="password" name="password" placeholder="Парола"><br><br>
+    <input type="submit" value="Вход">
+</form>

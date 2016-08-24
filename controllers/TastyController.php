@@ -2,15 +2,17 @@
 
 class TastyController extends BaseController
 {
-
-
-    function products()
+    function index(){
+        $this->cats = $this->model->index();
+    }
+    function products(int $cat_id)
     {
-        // TODO: Load all products from one category...
+        $this->products = $this->model->products($cat_id);
+        //$this->title = $this->model->products($cat_id)['cat_name'];
     }
 
-    function productView()
+    function productView(int $id)
     {
-        // TODO: Load one product information...
+        $this->product = $this->model->productView($id);
     }
 }

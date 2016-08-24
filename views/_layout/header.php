@@ -18,18 +18,40 @@
         </div>
         <nav>
             <a href="<?=APP_ROOT?>/">Начало</a>
-            <a href="#ForMe" class="smoothScroll" >За мен</a>
-            <a href="#Tasty" class="smoothScroll" >Вкусотийки</a>
-            <a href="#Contact" class="smoothScroll">Контакти</a>
+            <a href="<?=APP_ROOT?>/#ForMe" class="smoothScroll" >За мен</a>
+            <a href="<?=APP_ROOT?>/#Tasty" class="smoothScroll" >Вкусотийки</a>
+            <a href="<?=APP_ROOT?>/#Contact" class="smoothScroll">Контакти</a>
         </nav>
-        <div class="userProfileHead">
-            <img src="<?=APP_ROOT?>/content/images/profile.jpg" alt="Profile picture">
-            <ul id="userMenu">
-                <li><a href="<?=APP_ROOT?>/users/profile">Профил</a></li>
-                <li><a href="#">Админ</a></li>
-                <li><a href="#">Поръчки</a></li>
-                <li class="exit"><a href="#">Изход</a></li>
-            </ul>
-        </div>
+        <!-- Logged in -->
+        <?php
+            if ($this->isLoggedIn) {
+                ?>
+
+                <div class="userProfileHead">
+                    <img src="<?= APP_ROOT ?>/content/images/profile.jpg" alt="Profile picture">
+                    <ul id="userMenu">
+                        <li><a href="<?= APP_ROOT ?>/users/profile/<?=$_SESSION['user_id']?>">Профил</a></li>
+                        <li><a href="#">Админ</a></li>
+                        <li><a href="#">Поръчки</a></li>
+                        <li class="exit"><a href="<?=APP_ROOT?>/users/logout">Изход</a></li>
+                    </ul>
+                </div>
+                <?php
+            }
+            else{
+        ?>
+        <!-- End of Logged in -->
+        <!-- Not logged in -->
+                <div class="userProfileHead">
+                    <img src="<?=APP_ROOT?>/content/images/default_profile.jpg" alt="Profile picture">
+                    <ul id="userMenu">
+                        <li><a href="<?=APP_ROOT?>/users/login">Вход</a></li>
+                        <li><a href="<?=APP_ROOT?>/users/register">Регистрация</a></li>
+                    </ul>
+                </div>
+        <?php
+            }
+        ?>
+            <!-- End of Not logged in -->
     </header>
 <?php require_once('show-notify-messages.php'); ?>
