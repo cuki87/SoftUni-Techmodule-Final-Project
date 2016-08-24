@@ -8,10 +8,13 @@ class UsersController extends BaseController
           $username = $_POST['username'];
           $password = $_POST['password'];
           $user_id = $this->model->login($username, $password);
+
           if ($user_id !== false){
               $_SESSION['username'] = $username;
               $_SESSION['user_id'] = $user_id;
-              $this->addInfoMessage("Влязохте е успешна");
+              $avatar = $this->model->getAvatar($user_id);
+              $_SESSION['avatar'] = $avatar['profile_picture'];
+              $this->addInfoMessage("Влязохте успешно");
               $this->redirect("");
           }
           else{
@@ -32,27 +35,27 @@ class UsersController extends BaseController
 		    $profilePic = $_POST['profilePic'];
 
             if (strlen($username) <= 1){
-                $this->addErrorMessage("Невалидно потребителско име");
+                $this->setValidationError("username", "Невалидно потребителско име");
                 return;
             }
             if (strlen($password) <= 3){
-                $this->addErrorMessage("Паролата трябва да бъде поне 4 символа");
+                $this->setValidationError("password", "Паролата трябва да бъде поне 4 символа");
                 return;
             }
             if ($password != $passwordConfirm){
-                $this->addErrorMessage("Паролите не съвпадат");
+                $this->setValidationError("passwordConfirm", "Паролите не съвпадат");
                 return;
             }
             if (strlen($fullName) <= 0){
-                $this->addErrorMessage("Име и фамилия са задължителни");
+                $this->setValidationError("fullName", "Име и фамилия са задължителни");
                 return;
             }
             if (strlen($email) <= 0){
-                $this->addErrorMessage("E-mail е задължителен");
+                $this->setValidationError("email", "E-mail е задължителен");
                 return;
             }
             if (strlen($phone) <= 0){
-                $this->addErrorMessage("Телефонът е задължителен");
+                $this->setValidationError("phone", "Телефонът е задължителен");
                 return;
             }
             /*
@@ -88,44 +91,42 @@ class UsersController extends BaseController
 
     public function profile(int $id)
     {
-        if ($this->user){
+        if ($this->isPost) {
             $password = $_POST['password'];
-            if (strlen($password) < 4){
-                $this -> setValidationError("password", "Паролата трябва да бъде поне 4 символа");
+            if (strlen($password) < 4) {
+                $this->setValidationError("password", "Паролата трябва да бъде поне 4 символа");
             }
-            $password_confirm= $_POST['passwordConfirm'];
-            if ($password !== $password_confirm){
-                $this -> setValidationError("passwordConfirm", "Паролите не съвпадат");
+            $password_confirm = $_POST['passwordConfirm'];
+            if ($password !== $password_confirm) {
+                $this->setValidationError("passwordConfirm", "Паролите не съвпадат");
             }
             $full_name = $_POST['fullName'];
-            if (strlen($full_name) <= 0){
-                $this -> setValidationError("fullName", "Пълното име не може да бъде празно");
+            if (strlen($full_name) <= 0) {
+                $this->setValidationError("fullName", "Пълното име не може да бъде празно");
             }
             $email = $_POST['email'];
-            if (strlen($email) <= 0){
-                $this -> setValidationError("email", "Email не може да бъде празно");
+            if (strlen($email) <= 0) {
+                $this->setValidationError("email", "Email не може да бъде празно");
             }
             $phone = $_POST['phone'];
-            if (strlen($phone) <= 0){
-                $this -> setValidationError("phone", "Телефонът не може да бъде празно");
+            if (strlen($phone) <= 0) {
+                $this->setValidationError("phone", "Телефонът не може да бъде празно");
             }
 
-        }
-
-        if ($this->formValid()){
-            if ($this->model->editProfile($id, $password, $full_name, $email, $phone)){
-                $this->addInfoMessage("Профилът е редактиран успешно");
+            if ($this->formValid()) {
+                if ($this->model->editProfile($id, $password, $full_name, $email, $phone)) {
+                    $this->addInfoMessage("Профилът е редактиран успешно");
+                } else {
+                    $this->addErrorMessage("Грешка: Неуспешно редактиране на профила");
+                }
+                $this->redirect("");
             }
-            else{
-                $this->addErrorMessage("Грешка: Неуспешно редактиране на профила");
-            }
-            $this->redirect('users/profile/'.$id);
         }
 
         $user = $this->model->getById($id);
         if (!$user){
             $this->addErrorMessage("Грешка: Няма такъв потребител");
-            $this->redirect(' ');
+            $this->redirect("");
         }
         $this->user = $user;
     }

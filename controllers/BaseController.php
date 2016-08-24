@@ -90,7 +90,7 @@ abstract class BaseController
         }
     }
 
-    function addMessage(string $msg, string $type)
+    function  addMessage(string $msg, string $type)
     {
         if (!isset($_SESSION['messages'])) {
             $_SESSION['messages'] = array();
@@ -118,4 +118,5 @@ abstract class BaseController
     {
         return count($this->validationErrors) == 0;
     }
+
 }
