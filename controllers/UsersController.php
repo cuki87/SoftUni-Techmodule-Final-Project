@@ -2,22 +2,137 @@
 
 class UsersController extends BaseController
 {
-    public function register()
-    {
-		// TODO: your user registration functionality will come here ...
-    }
-
     public function login()
     {
-		// TODO: your user login functionality will come here ...
+      if($this->isPost){
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $user_id = $this->model->login($username, $password);
+          if ($user_id !== false){
+              $_SESSION['username'] = $username;
+              $_SESSION['user_id'] = $user_id;
+              $this->addInfoMessage("Влязохте е успешна");
+              $this->redirect("");
+          }
+          else{
+              $this->addErrorMessage("Грешка: Неуспешен вход");
+          }
+      }
     }
 
-    public function profile()
+    public function register()
     {
-        // TODO: view and edit user profile...
+		if($this->isPost){
+		    $username = $_POST['username'];
+		    $password = $_POST['password'];
+		    $passwordConfirm = $_POST['passwordConfirm'];
+		    $fullName = $_POST['fullName'];
+		    $email = $_POST['email'];
+		    $phone = $_POST['phone'];
+		    $profilePic = $_POST['profilePic'];
+
+            if (strlen($username) <= 1){
+                $this->addErrorMessage("Невалидно потребителско име");
+                return;
+            }
+            if (strlen($password) <= 3){
+                $this->addErrorMessage("Паролата трябва да бъде поне 4 символа");
+                return;
+            }
+            if ($password != $passwordConfirm){
+                $this->addErrorMessage("Паролите не съвпадат");
+                return;
+            }
+            if (strlen($fullName) <= 0){
+                $this->addErrorMessage("Име и фамилия са задължителни");
+                return;
+            }
+            if (strlen($email) <= 0){
+                $this->addErrorMessage("E-mail е задължителен");
+                return;
+            }
+            if (strlen($phone) <= 0){
+                $this->addErrorMessage("Телефонът е задължителен");
+                return;
+            }
+            /*
+            if (strlen($profilePic) <= 0){
+                $this->addErrorMessage("Профилната снимка е задължителна");
+                return;
+            }
+
+            $UploadedFileName=$_FILES['profilePic']['name'];
+            if($UploadedFileName!='')
+            {
+                $upload_directory = APP_ROOT."/content/uploads/profilePics"; //This is the folder which you created just now
+                $TargetPath=time().$UploadedFileName;
+                var_dump($TargetPath);
+                if(move_uploaded_file($_FILES['files']['tmp_name'], $upload_directory.$TargetPath))
+                {
+
+                }
+            }
+*/
+            $user_id = $this->model->register($username, $password, $fullName, $email, $phone);
+            if ($user_id !== false){
+                $_SESSION['username'] = $username;
+                $_SESSION['user_id'] = $user_id;
+                $this->addInfoMessage("Регистрацията е успешна");
+                $this->redirect("");
+            }
+            else{
+                $this->addErrorMessage("Грешка: Регистрацията е неуспешна");
+            }
+        }
     }
+
+    public function profile(int $id)
+    {
+        if ($this->user){
+            $password = $_POST['password'];
+            if (strlen($password) < 4){
+                $this -> setValidationError("password", "Паролата трябва да бъде поне 4 символа");
+            }
+            $password_confirm= $_POST['passwordConfirm'];
+            if ($password !== $password_confirm){
+                $this -> setValidationError("passwordConfirm", "Паролите не съвпадат");
+            }
+            $full_name = $_POST['fullName'];
+            if (strlen($full_name) <= 0){
+                $this -> setValidationError("fullName", "Пълното име не може да бъде празно");
+            }
+            $email = $_POST['email'];
+            if (strlen($email) <= 0){
+                $this -> setValidationError("email", "Email не може да бъде празно");
+            }
+            $phone = $_POST['phone'];
+            if (strlen($phone) <= 0){
+                $this -> setValidationError("phone", "Телефонът не може да бъде празно");
+            }
+
+        }
+
+        if ($this->formValid()){
+            if ($this->model->editProfile($id, $password, $full_name, $email, $phone)){
+                $this->addInfoMessage("Профилът е редактиран успешно");
+            }
+            else{
+                $this->addErrorMessage("Грешка: Неуспешно редактиране на профила");
+            }
+            $this->redirect('users/profile/'.$id);
+        }
+
+        $user = $this->model->getById($id);
+        if (!$user){
+            $this->addErrorMessage("Грешка: Няма такъв потребител");
+            $this->redirect(' ');
+        }
+        $this->user = $user;
+    }
+
     public function logout()
     {
-		// TODO: your user logout functionality will come here ...
+		session_destroy();
+        $this->redirect("");
     }
 }
