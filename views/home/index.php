@@ -88,24 +88,24 @@
             Пишете ми, а аз ще запретна ръкави и ще приготвя най-вкусния сладкиш специално за вас!
         </div>
         <?php
-        if(isset($_POST['submit'])){
-            $to = "pepi.vasilev@gmail.com"; // this is your Email address
+            $to = "root@localhost.com"; // this is your Email address
             $from = $_POST['email']; // this is the sender's Email address
             $full_name = $_POST['first_name'];
-            $subject = "Писмо от сайта";
-            $subject2 = "Поръчка от \"Кухнята на Мони\"";
-            $message = $full_name . " wrote the following:" . "\r\n" . $_POST['message'];
-            $message2 = "Благодарим Ви, г-н/г-жо" . $full_name . " за писмото. Ще се свържем с Вас възможно при първа възможност." . "\r\n" ."Поздрави, Мони!". "\r\n";
+            $subject = "Orders from \"Monys Kitchen\"";
+            $body = $full_name . $_POST['email'] . " wrote the following:" . "\r\n" . $_POST['message'];
 
-            $headers = "От:" . $from;
-            $headers2 = "От:" . $to;
-            mail($to,$subject,$message,$headers);
-            mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-            echo "Писмото е изпратено успешно!";
-            // You can also use header('Location: thank_you.php'); to redirect to another page.
-            // You cannot use header and echo together. It's one or the other.
-        }
+            $headers = "From: Monys Kitchen";
+            $headers = "Content-Type: text/html; charset=UTF-8";
+
+            if (mail($to, $subject, $body, $headers)) {
+                echo("Message successfully sent!
+");
+            } else {
+                echo("Message delivery failed...
+");
+            }
         ?>
+
         <div class="contactForm">
             <form action="" method="post">
                 <input type="text" name="full_name" placeholder="Име"><br>
