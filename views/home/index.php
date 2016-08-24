@@ -95,6 +95,7 @@
             $body = $full_name . $_POST['email'] . " wrote the following:" . "\r\n" . $_POST['message'];
 
             $headers = "From: Monys Kitchen";
+            $headers = "Content-Type: text/html; charset=UTF-8";
 
             if (mail($to, $subject, $body, $headers)) {
                 echo("Message successfully sent!
