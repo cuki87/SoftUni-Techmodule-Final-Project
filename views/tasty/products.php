@@ -9,7 +9,7 @@ $this->heading = str_replace(" - Кухнята на Мони","",$this->title);
     $counter = 0;
     foreach ($this->products as $product) {
 ?>
-
+<?php if ($product['id'] != null){ ?>
         <div class="prodLinks">
             <div class="prod">
                 <a href="<?=APP_ROOT?>/tasty/productView/<?=$product['id']?>">
@@ -26,8 +26,9 @@ $this->heading = str_replace(" - Кухнята на Мони","",$this->title);
                 </a>
             </div>
         </div>
+<?php }
+        else{ $this->noProducts(); }
 
-        <?php
         if(++$counter % 3 === 0) echo "<br>"
         ?>
 <?php

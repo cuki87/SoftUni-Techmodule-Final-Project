@@ -63,7 +63,13 @@
                                     <?=htmlentities($cats['cat_description']) ?>
                                 </span>
                             </span>
-                            <img src="<?=APP_ROOT.htmlentities($cats['cat_picture'])?>" alt="<?=htmlentities($cats['cat_name']) ?>">
+                            <?php if ($cats['cat_picture'] != null){?>
+                                <img src="<?=APP_ROOT.htmlentities($cats['cat_picture'])?>" alt="<?=htmlentities($cats['cat_name']) ?>">
+                            <?php }
+                                else{
+                            ?>
+                                <img src="<?=APP_ROOT?>/content/images/categories/default.jpg" alt="<?=htmlentities($cats['cat_name']) ?>">
+                            <?php } ?>
                         </a>
                     </div>
                 </div>

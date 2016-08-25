@@ -13,7 +13,9 @@ class TastyController extends BaseController
            $this->redirect('tasty');
        }
     }
-
+    function noProducts (){
+        $this->addErrorMessage("Грешка: Няма продукти в тази категория");
+    }
     function productView(int $id)
     {
         $this->product = $this->model->productView($id);
