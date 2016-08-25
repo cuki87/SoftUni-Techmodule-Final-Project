@@ -87,30 +87,11 @@
             Харесвате моите вкусотийки?<br><br>
             Пишете ми, а аз ще запретна ръкави и ще приготвя най-вкусния сладкиш специално за вас!
         </div>
-        <?php
-            $to = "root@localhost.com"; // this is your Email address
-            $from = $_POST['email']; // this is the sender's Email address
-            $full_name = $_POST['first_name'];
-            $subject = "Orders from \"Monys Kitchen\"";
-            $body = $full_name . $_POST['email'] . " wrote the following:" . "\r\n" . $_POST['message'];
-
-            $headers = "From: Monys Kitchen";
-            $headers = "Content-Type: text/html; charset=UTF-8";
-
-            if (mail($to, $subject, $body, $headers)) {
-                echo("Message successfully sent!
-");
-            } else {
-                echo("Message delivery failed...
-");
-            }
-        ?>
-
         <div class="contactForm">
-            <form action="" method="post">
-                <input type="text" name="full_name" placeholder="Име"><br>
-                <input type="text" name="email" placeholder="E-mail"><br>
-                <textarea rows="5" name="message" placeholder="Вашето съобщение"></textarea><br>
+            <form action="<?php $this->mail();?>" method="post">
+                <input type="text" name="full_name" placeholder="Име" required><br>
+                <input type="email" name="email" placeholder="E-mail" required><br>
+                <textarea rows="5" name="message" placeholder="Вашето съобщение" required></textarea><br>
                 <input type="submit" class="sendButton" name="submit" value="Изпрати">
             </form>
         </div>
