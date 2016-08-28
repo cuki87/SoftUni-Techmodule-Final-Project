@@ -1,0 +1,294 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+body{
+    width: 100%;
+    margin: 0 0 35px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+img{
+    border: 0px;
+}
+ul, li, h1, h2, h3, h4, h5, h6, p{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color: darkred;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+thead{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Roboto Condensed';
+    font-size: 15pt;
+    color: darkred;
+}
+td{
+    border: 1px solid darkred;
+    padding: 5px;
+}
+.admintab{
+    text-align: center;
+}
+.thumbnail{
+    width: 50px;
+}
+.image{
+    text-align: center;
+}
+header{
+    background: darkred;
+    height: 80px;
+    width: 100%;
+}
+.msg{
+    display: inline-block;
+    width: 20%;
+    vertical-align: 15px;
+}
+ul#messages li{
+    display: block;
+    width: 100%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 999;
+}
+ul#messages li.info{
+    background: #7f7;
+    z-index: 999;
+}
+ul#messages li.error{
+    background: #d00;
+    color: white;
+    z-index: 999;
+}
+.validation-error{
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.adminLogo{
+    position: relative;
+    left: 50px;
+    display: inline-block;
+    margin-right: 5%;
+    text-align: center;
+}
+.adminLogo a{
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+}
+nav{
+    display: inline-block;
+    vertical-align: 15px;
+}
+nav a{
+    color: white;
+    font-size: 23px;
+    padding: 10px;
+    font-weight: bold;
+}
+nav a:hover{
+    color: darkred;
+    background: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.exit{
+    display: inline-block;
+    margin: 22px 30px 0px 0px;
+    float: right;
+}
+.exit a{
+    color: white;
+    font-size: 18pt;
+}
+.exit a:hover{
+    text-decoration: underline;
+    color: red;
+}
+main{
+   margin-bottom: 60px;
+}
+h1, h2{
+    color: darkred;
+    font-weight: 900;
+    font-size: 35pt;
+    text-align: center;
+}
+h3{
+    color: #abb7b7;
+    font-weight: bold;
+    font-size: 30pt;
+    text-align: center;
+}
+h4{
+    color: #abb7b7;
+    font-weight: bold;
+    font-size: 18pt;
+    text-align: center;
+}
+footer{
+    border-bottom: 5px solid darkred;
+    width: 100%;
+    color: darkred;
+    font-weight: bold;
+    font-size: 18pt;
+    bottom: 0;
+    left: 0;
+    height: 35px;
+    position: absolute;
+}
+.devs{
+    margin-left: 5%;
+    display: inline;
+}
+.copyright{
+    float: right;
+    margin-right: 5%;
+    display: inline;
+}
+.adminIndex{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.adminIndex td{
+    padding: 20px;
+    text-align: center;
+    border: 1px solid darkred;
+}
+.usersForm{
+    margin-top: 50px;
+    text-align: center;
+}
+.usersForm input, textarea{
+    background: white;
+    border: 2px solid darkred;
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 5px;
+    color: darkred;
+    height: 30px;
+    font-size: 18pt;
+}
+.usersForm textarea{
+    height: 100px;
+}
+.usersForm input:disabled, textarea:disabled{
+    background: #ededed;
+}
+.usersForm input[type="submit"]{
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+}
+.usersForm input[type="submit"]:hover{
+    background: darkred;
+    color: white;
+    border: 1px solid white;
+}
+.reg input[type="submit"]{
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+.reg input[type="submit"]:hover{
+    background: darkred;
+    color: white;
+    border: 1px solid white;
+}
+.usersForm input[type="file"]{
+    display: none;
+}
+.usersForm label{
+    display: block;
+    width: 300px;
+    height: 30px;
+    background: white;
+    border: 2px solid darkred;
+    margin: 0 auto;
+    padding: 5px;
+    color: darkred;
+    font-size: 17pt;
+    cursor: pointer;
+}
+.usersForm label:hover{
+    background: darkred;
+    color: white;
+    border: 2px solid white;
+}
+.usersForm:focus + label{
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.usersForm + label*{
+    pointer-events: none;
+}
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.usersForm>div{
+    font-weight: bold;
+    color: darkred;
+}
+.usersForm img{
+    width: 310px;
+    border: 2px solid darkred;
+}
+.select{
+    overflow: hidden;
+    width: 310px;
+    margin: 0 auto;
+    background: white;
+    border: 2px solid darkred;
+}
+.usersForm select{
+    width: 330px;
+    border: 0px;
+    color: darkred;
+    font-size: 18pt;
+    padding: 5px;
+}
+.add{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 280px;
+    height: 50px;
+}
+.add a{
+    display: block;
+    border: 2px solid darkred;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px ;
+    border-radius: 5px;
+    padding: 5px;
+    color: darkred;
+    font-size: 17pt;
+}
+.add:hover{
+    background: darkred;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px ;
+    border-radius: 5px;
+}
+.add:hover>a{
+    color: white;
+}
