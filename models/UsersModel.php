@@ -19,7 +19,7 @@ class UsersModel extends BaseModel
     public function login(string $username, string $password)
     {
         $statement = self::$db->prepare(
-            "SELECT id, password_hash, profile_picture FROM users WHERE username = ?");
+            "SELECT id, password_hash, profile_picture, admin FROM users WHERE username = ?");
         $statement->bind_param("s", $username);
         $statement->execute();
         $result = $statement->get_result()->fetch_assoc();
@@ -47,10 +47,15 @@ class UsersModel extends BaseModel
        return $statement->affected_rows >=0;
     }
 
-
     public function getAvatar(int $id)
     {
         $statement = self::$db->query("SELECT id, profile_picture FROM users WHERE id= ". $id);
+        return $statement->fetch_assoc();
+    }
+
+    public function isAdmin(int $id)
+    {
+        $statement = self::$db->query("SELECT admin FROM users WHERE id= ". $id);
         return $statement->fetch_assoc();
     }
 }

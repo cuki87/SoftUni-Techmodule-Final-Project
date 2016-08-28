@@ -47,8 +47,8 @@ ul#messages li.error{
     z-index: 999;
 }
 .validation-error{
-    color: red;
-    font-weight: bold;
+    color: red!important;
+    font-weight: bold!important;
     margin-left: 5px;
 }
 .logo{
@@ -200,6 +200,7 @@ main{
 .forMeText h1{
     font-size: 2em;
     font-weight: 900;
+    margin-top: 0px;
 }
 .forMeText ul{
     font-family: 'Roboto Condensed', sans-serif;
@@ -222,6 +223,7 @@ h1, h2{
     font-weight: 900;
     font-size: 35pt;
     text-align: center;
+    margin-top: 25px;
 }
 h3{
     color: #abb7b7;
@@ -351,24 +353,109 @@ footer{
     display: inline;
 }
 .product{
-    margin-top: 30px;
-    text-align: center;
+    padding-top: 30px;
+    width: 800px;
+    margin: 0 auto;
 }
 .productPic{
     display: inline-block;
     margin-right: 20px;
+    vertical-align: top;
 }
 .productPic img{
     width: 300px;
-    height: 300px;
-    border: 10px solid #4183d7;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    float: left;
+    border: 5px solid #4183d7;
+}
+.productRight{
+    display: inline-block;
+    width: 370px;
+}
+.price{
+    display: block;
+    background: #4183d7;
+    color: white;
+    font-size: 23pt;
+    font-weight: bold;
+    font-family: 'Roboto Condensed';
+    padding: 10px;
+    border-radius: 5px;
+    width: 115px;
+    margin-bottom: 30px;
 }
 .productDescription{
-    display: inline-block;
-    width: 40%;
+    display: block;
     vertical-align: top;
+}
+.usersForm{
+    margin-top: 50px;
+    text-align: center;
+}
+.usersForm input{
+    background: white;
+    border: 2px solid #4183d7;
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 5px;
+    color: #446cb3;
+    height: 30px;
+    font-size: 18pt;
+}
+.usersForm input:disabled{
+    background: #ededed;
+}
+.usersForm input[type="submit"]{
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+}
+.usersForm input[type="submit"]:hover{
+    background: #446cb3;
+    color: white;
+    border: 1px solid white;
+}
+.reg input[type="submit"]{
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+.reg input[type="submit"]:hover{
+    background: #446cb3;
+    color: white;
+    border: 1px solid white;
+}
+.usersForm input[type="file"]{
+    display: none;
+}
+.usersForm label{
+    display: block;
+    width: 300px;
+    height: 30px;
+    background: white;
+    border: 2px solid #4183d7;
+    margin: 0 auto;
+    padding: 5px;
+    color: #446cb3;
+    font-size: 17pt;
+    cursor: pointer;
+}
+.usersForm label:hover{
+    background: #446cb3;
+    color: white;
+    border: 2px solid white;
+}
+.usersForm:focus + label{
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.usersForm + label*{
+    pointer-events: none;
+}
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.usersForm>div{
+    font-weight: bold;
+    color: #446cb3;
 }

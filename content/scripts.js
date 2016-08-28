@@ -55,7 +55,42 @@ function setFieldValue (fieldName, fieldValue) {
 function showValidationError (fieldName, errorMsg) {
     let field = $("input[name='" + fieldName + "'], textarea[name='" + fieldName + "']");
     field.after(
-        $("<span class='validation-error'>").text(errorMsg)
+        $("<div class='validation-error'>").text(errorMsg)
     );
     field.focus();
+}
+function fileInput() {
+    var inputs = document.querySelectorAll('.inputfile');
+    Array.prototype.forEach.call(inputs, function (input) {
+        var label = input.nextElementSibling,
+            labelVal = label.innerHTML;
+
+        input.addEventListener('change', function (e) {
+            var fileName = '';
+            if (this.files && this.files.length > 1)
+                fileName = ( this.getAttribute('data-multiple-caption') || '' ).replace('{count}', this.files.length);
+            else
+                fileName = e.target.value.split('\\').pop();
+
+            if (fileName) {
+                if (fileName.length <= 20) {
+                    label.innerHTML = fileName;
+                }
+                else {
+                    var str1 = fileName.substr(0, 11);
+                    var str2 = fileName.substr(fileName.length - 6, 6);
+                    label.innerHTML = str1.concat('...', str2);
+                }
+            }
+            else {
+                label.innerHTML = labelVal;
+            }
+        });
+        input.addEventListener('focus', function () {
+            input.classList.add('has-focus');
+        });
+        input.addEventListener('blur', function () {
+            input.classList.remove('has-focus');
+        });
+    });
 }

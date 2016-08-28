@@ -12,8 +12,10 @@ function parseRequest() : array
     if (substr($requestPath, 0, strlen(APP_ROOT . '/')) != APP_ROOT . '/') {
         die('APP_ROOT is incorrectly defined in config.php. Use "" or "/blog".');
     }
+
     $requestPath = substr($requestPath, strlen(APP_ROOT)); // remove APP_ROOT prefix
     $requestParts = explode('/', $requestPath);
+
 
     // Extract the controller from {controller}/{action}/{params}
     $controller = DEFAULT_CONTROLLER;

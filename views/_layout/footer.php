@@ -3,7 +3,7 @@
             Designed by perer & cuki
         </div>
         <div class="copyright">
-            Copyright &copy; 2016. All rights recerved
+            Copyright &copy; <?=date("Y");?>. All rights recerved
         </div>
     </footer>
 	
