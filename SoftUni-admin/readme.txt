@@ -1,0 +1,1 @@
+Move this folder to your main root or in the folder where SoftUni is.
