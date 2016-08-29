@@ -3,3 +3,6 @@
 *.ids
 *.ids
 *.ini
+*.xml
+*.xml
+.idea/dataSources.local.xml
