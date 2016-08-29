@@ -44,9 +44,6 @@ td{
 .thumbnail{
     width: 50px;
 }
-.image{
-    text-align: center;
-}
 header{
     background: darkred;
     height: 80px;
@@ -76,8 +73,8 @@ ul#messages li.error{
     z-index: 999;
 }
 .validation-error{
-    color: red;
-    font-weight: bold;
+    color: red !important;
+    font-weight: bold !important;
     margin-left: 5px;
 }
 .adminLogo{
@@ -291,4 +288,65 @@ footer{
 }
 .add:hover>a{
     color: white;
+}
+.slides{
+    margin: 0 auto;
+    width: 865px;
+}
+.slide{
+    display: inline-block;
+    padding: 30px 30px 0 0;
+    text-align: center;
+}
+.slides>.image{
+    display: block;
+}
+.slides img{
+    display: block;
+}
+.slides .admintab{
+    margin-top: 10px;
+    width: 150px;
+    position: relative;
+    left: 30%;
+}
+.slides .admintab a{
+    display: block;
+    border: 2px solid darkred;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px ;
+    border-radius: 5px;
+    padding: 5px;
+    color: darkred;
+    font-size: 17pt;
+}
+.slides .admintab:hover{
+    background: darkred;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px ;
+    border-radius: 5px;
+}
+.slides .admintab:hover>a{
+    color: white;
+}
+.slideThumb{
+    width: 400px;
+}
+.image{
+    text-align: center;
+}
+form.slider{
+    margin-top: 0px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 15px;
+}
+.slider label{
+    display: inline-block;
+    height: 100%;
+}
+input.addSlide{
+    width: 200px!important;
+    height: 45px !important;
+    padding-top: 2px;
+    margin-left: 15px;
 }

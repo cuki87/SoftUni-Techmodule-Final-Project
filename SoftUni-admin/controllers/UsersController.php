@@ -119,7 +119,6 @@ class UsersController extends BaseController
             $this->addErrorMessage("Грешка: Неуспешно изтриване на потребителя");
         }
     }
-
     public function logout()
     {
 		session_destroy();
