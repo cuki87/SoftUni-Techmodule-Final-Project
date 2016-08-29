@@ -22,7 +22,7 @@ class TastyModel extends BaseModel
     function productView(int $id)
     {
         $statement = self::$db->query(
-            "SELECT products.id, product_name, product_description, product_picture, c.cat_name ".
+            "SELECT products.id, product_name, product_description, product_picture, price, c.cat_name ".
             "FROM products ".
             "LEFT JOIN categories c on cat_id=c.id ".
             "WHERE products.id = " . $id);

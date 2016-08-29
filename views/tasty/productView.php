@@ -11,8 +11,15 @@
             <div class="productPic">
                 <img src="<?=APP_ROOT.$product['product_picture']?>">
             </div>
-            <div class="productDescription">
-                <?=$product['product_description']?>
+            <div class="productRight">
+                <?php if ($product['price']){ ?>
+                    <div class="price">
+                        <?=number_format($product['price'],2)." лв."?>
+                    </div>
+                <?php } ?>
+                <div class="productDescription">
+                    <?=$product['product_description']?>
+                </div>
             </div>
         </div>
     <?php

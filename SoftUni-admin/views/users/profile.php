@@ -3,7 +3,7 @@
 $this->heading = str_replace(" - Кухнята на Мони","",$this->title);
 ?>
 <h1><?= htmlspecialchars($this->heading) ?></h1>
-<form method="post" class="usersForm">
+<form method="post">
     <div>Потребителско име:</div>
     <input type="text" name="username" value="<?=$_SESSION['username']?>" disabled><br>
     <div>Парола:</div>
@@ -16,16 +16,7 @@ $this->heading = str_replace(" - Кухнята на Мони","",$this->title);
     <input type="text" name="email" value="<?=htmlspecialchars($this->user['email'])?>"><br>
     <div>Телефон:</div>
     <input type="text" name="phone" value="<?=htmlspecialchars($this->user['phone'])?>"><br>
-    <div>Профилна снимка:</div>
-    <input type="file" name="file" id="file" class="inputfile" />
-    <label for="file">
-        Качи нова
-    </label>
-    <br>
-
-    <input type="submit" value="Редактирай">
+    <div>
+        <input type="submit" value="Редактирай">
+    </div>
 </form>
-
-<script type="text/javascript">
-    fileInput();
-</script>

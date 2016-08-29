@@ -40,7 +40,9 @@
                     <?php } ?>
                     <ul id="userMenu">
                         <li><a href="<?= APP_ROOT ?>/users/profile/<?=$_SESSION['user_id']?>">Профил</a></li>
-                        <li><a href="#">Админ</a></li>
+                        <?php if (isset($_SESSION['admin'])){?>
+                            <li><a href="<?=APP_ROOT?>-admin" target="_blank">Админ</a></li>
+                        <?php } ?>
                         <li><a href="#">Поръчки</a></li>
                         <li class="exit"><a href="<?=APP_ROOT?>/users/logout">Изход</a></li>
                     </ul>
