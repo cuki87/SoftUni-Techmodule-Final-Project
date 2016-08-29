@@ -2,7 +2,8 @@
 
 class HomeController extends BaseController
 {
-    function index() {
+    function index()
+    {
         $this->cats = $this->model->getCategories();
         $this->forMeContent = $this->model->getForMe();
         $this->sliderContent = $this->model->slider();
@@ -13,22 +14,22 @@ class HomeController extends BaseController
         if ($this->isPost) {
             $to = "root@localhost.com"; // this is your Email address
             $from = $_POST['email']; // this is the sender's Email address
-            $full_name = $_POST['full_name']."\r\n";
+            $full_name = $_POST['full_name'] . "\r\n";
             $subject = "Orders from \"Monys Kitchen\"";
             $message = $_POST['message'];
-            $body = $full_name . $_POST['email'] . "<br>\r\n" . " Съобщение:" . "\r\n" .$message ;
+            $body = $full_name . $_POST['email'] . "<br>\r\n" . " Съобщение:" . "\r\n" . $message;
 
             $headers = "From: Monys Kitchen";
             $headers = "Content-Type: text/html; charset=UTF-8";
-            if (strlen($full_name) <= 1){
+            if (strlen($full_name) <= 1) {
                 $this->setValidationError("full_name", "Невалидно име");
                 return;
             }
-            if (strlen($from) <= 0 && filter_var($from, IS_VALIDATE_EMAIL)){
+            if (strlen($from) <= 0 && filter_var($from, IS_VALIDATE_EMAIL)) {
                 $this->setValidationError("email", "Моля въведете валидна електронна поща");
                 return;
             }
-            if (strlen($message) <= 1){
+            if (strlen($message) <= 1) {
                 $this->setValidationError("message", "Съобщението не е валидно");
                 return;
             }
@@ -41,6 +42,11 @@ class HomeController extends BaseController
             }
 
         }
+    }
 
+    function notAdmin()
+    {
+        $this->addErrorMessage("Грешка: Нямате администраторски права");
+        header( "refresh:3;url=/SoftUni/" );
     }
 }

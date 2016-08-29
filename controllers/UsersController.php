@@ -14,7 +14,7 @@ class UsersController extends BaseController
               $avatar = $this->model->getAvatar($user_id);
               $_SESSION['avatar'] = $avatar['profile_picture'];
               $isAdmin = $this->model->isAdmin($user_id);
-              $_SESSION['admin'] = (int)$isAdmin['admin'];
+              $_SESSION['admin'] = $isAdmin['admin'];
               $this->addInfoMessage("Влязохте успешно");
               $this->redirect("");
           }
