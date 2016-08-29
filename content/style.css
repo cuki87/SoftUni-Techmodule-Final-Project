@@ -379,8 +379,9 @@ footer{
     font-family: 'Roboto Condensed';
     padding: 10px;
     border-radius: 5px;
-    width: 115px;
+    width: 130px;
     margin-bottom: 30px;
+    text-align: center;
 }
 .productDescription{
     display: block;

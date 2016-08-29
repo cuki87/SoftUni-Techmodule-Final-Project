@@ -55,6 +55,7 @@ class ProductsController extends BaseController
 
     function edit(int $id)
     {
+        $this->getByID($id);
         if ($this->isPost) {
             $name = $_POST['name'];
             if (strlen($name) <= 0) {
@@ -64,7 +65,13 @@ class ProductsController extends BaseController
             if (strlen($description) <= 0) {
                 $this->setValidationError("description", "Полето не може да бъде празно");
             }
-            $picture = $_POST['picture'];
+            $picture = null;
+            if ($this->product['product_picture'] == null || $_POST['picture'] != null) {
+                $picture = $_POST['picture'];
+            }
+            else{
+                $picture = $this->product['product_picture'];
+            }
 
             $price = $_POST['price'];
 
@@ -81,8 +88,8 @@ class ProductsController extends BaseController
                     $this->addErrorMessage("Грешка: Неуспешно редактиране на продукта");
                 }
             }
+            var_dump($picture);
         }
-        $this->getByID($id);
         $this->getCategories();
     }
 

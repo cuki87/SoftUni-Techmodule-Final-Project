@@ -34,7 +34,7 @@ $this->heading = str_replace(" - Кухнята на Мони","",$this->title);
             ?>
             <div><i><u>Няма снимка</u></i></div>
         <?php }?>
-        <input type="file" name="picture" id="file" class="inputfile" />
+        <input type="file" name="picture" id="file" class="inputfile" value="" />
         <label for="file">
             Качи нова
         </label>

@@ -11,7 +11,7 @@ class UsersModel extends BaseModel
         $statement->bind_param("sssss", $username, $password_hash, $fullName, $email, $phone);
         $statement->execute();
         if($statement->affected_rows != 1)
-            return false;
+        return false;
          $user_id = self::$db->query("SELECT LAST_INSERT_ID()")->fetch_row()[0];
          return $user_id;
     }

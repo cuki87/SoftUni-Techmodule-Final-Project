@@ -45,6 +45,7 @@ class CategoriesController extends BaseController
 
     function edit(int $id)
     {
+        $this->getByID($id);
         if ($this->isPost) {
             $name = $_POST['name'];
             if (strlen($name) <= 0) {
@@ -57,7 +58,13 @@ class CategoriesController extends BaseController
             elseif (strlen(utf8_decode($description)) > 50){
                 $this->setValidationError("description", "Полето не може да съдържа повече от 50 символа");
             }
-            $picture = $_POST['picture'];
+            $picture = null;
+            if ($this->category['cat_picture'] == null || $_POST['picture'] != null) {
+                $picture = $_POST['picture'];
+            }
+            else{
+                $picture = $this->category['cat_picture'];
+            }
 
             if ($this->formValid()) {
                 if ($this->model->editCategory($id, $name, $description, $picture)) {
@@ -68,7 +75,6 @@ class CategoriesController extends BaseController
                 }
             }
         }
-        $this->getByID($id);
     }
 
     function delete(int $id)

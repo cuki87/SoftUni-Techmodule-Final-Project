@@ -3,7 +3,7 @@ $this->heading = str_replace(" - Кухнята на Мони","",$this->title);
 ?>
 <main>
 <h1><?= htmlspecialchars($this->heading) ?></h1>
-    <h4>Добре дошли!</h4>
+    <h4>Добре дошъл!</h4>
     <br><br>
 <table class="adminIndex">
     <tr>
