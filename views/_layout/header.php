@@ -31,7 +31,7 @@
                 ?>
 
                 <div class="userProfileHead">
-                    <?php if ($_SESSION['avatar']){?>
+                    <?php if (isset($_SESSION['avatar'])){?>
                         <img src="<?= APP_ROOT.$_SESSION['avatar'] ?>" alt="Profile picture">
                     <?php }
                         else{
