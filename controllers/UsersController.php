@@ -60,24 +60,7 @@ class UsersController extends BaseController
                 $this->setValidationError("phone", "Телефонът е задължителен");
                 return;
             }
-            /*
-            if (strlen($profilePic) <= 0){
-                $this->addErrorMessage("Профилната снимка е задължителна");
-                return;
-            }
 
-            $UploadedFileName=$_FILES['profilePic']['name'];
-            if($UploadedFileName!='')
-            {
-                $upload_directory = APP_ROOT."/content/uploads/profilePics"; //This is the folder which you created just now
-                $TargetPath=time().$UploadedFileName;
-                var_dump($TargetPath);
-                if(move_uploaded_file($_FILES['files']['tmp_name'], $upload_directory.$TargetPath))
-                {
-
-                }
-            }
-*/
             $user_id = $this->model->register($username, $password, $fullName, $email, $phone);
             if ($user_id !== false){
                 $_SESSION['username'] = $username;
@@ -114,56 +97,14 @@ class UsersController extends BaseController
             if (strlen($phone) <= 0) {
                 $this->setValidationError("phone", "Телефонът не може да бъде празно");
             }
-            $target_dir = APP_ROOT."content/images/avatars/";
-            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-            $uploadOk = 1;
-            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-            /*
-// Check if file already exists
-                if (file_exists($target_file)) {
-                    echo "Sorry, file already exists.";
-                    $uploadOk = 0;
-                }
-// Check file size
-                if ($_FILES["fileToUpload"]["size"] > 500000) {
-                    echo "Sorry, your file is too large.";
-                    $uploadOk = 0;
-                }
-// Allow certain file formats
-                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                    && $imageFileType != "gif" ) {
-                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                    $uploadOk = 0;
-                }
-            */
-// Check if $uploadOk is set to 0 by an error
-                if ($uploadOk == 0) {
-                    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-                } else {
-                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir)) {
-                        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";var_dump($_FILES);
-                    } else {
-                        echo "Sorry, there was an error uploading your file.";var_dump($_FILES);
-                    }
-                }
 
             if ($this->formValid()) {
                 if ($this->model->editProfile($id, $password, $full_name, $email, $phone)) {
                     $this->addInfoMessage("Профилът е редактиран успешно");
+                    $this->redirect("");
                 } else {
                     $this->addErrorMessage("Грешка: Неуспешно редактиране на профила");
                 }
-               // $this->redirect("");
             }
         }
 
@@ -173,8 +114,6 @@ class UsersController extends BaseController
             $this->redirect("");
         }
         $this->user = $user;
-
-
     }
 
     public function logout()
