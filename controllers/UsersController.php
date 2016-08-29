@@ -1,5 +1,4 @@
 <?php
-
 class UsersController extends BaseController
 {
     public function login()
@@ -60,24 +59,7 @@ class UsersController extends BaseController
                 $this->setValidationError("phone", "Телефонът е задължителен");
                 return;
             }
-            /*
-            if (strlen($profilePic) <= 0){
-                $this->addErrorMessage("Профилната снимка е задължителна");
-                return;
-            }
 
-            $UploadedFileName=$_FILES['profilePic']['name'];
-            if($UploadedFileName!='')
-            {
-                $upload_directory = APP_ROOT."/content/uploads/profilePics"; //This is the folder which you created just now
-                $TargetPath=time().$UploadedFileName;
-                var_dump($TargetPath);
-                if(move_uploaded_file($_FILES['files']['tmp_name'], $upload_directory.$TargetPath))
-                {
-
-                }
-            }
-*/
             $user_id = $this->model->register($username, $password, $fullName, $email, $phone);
             if ($user_id !== false){
                 $_SESSION['username'] = $username;
@@ -118,10 +100,10 @@ class UsersController extends BaseController
             if ($this->formValid()) {
                 if ($this->model->editProfile($id, $password, $full_name, $email, $phone)) {
                     $this->addInfoMessage("Профилът е редактиран успешно");
+                    $this->redirect("");
                 } else {
                     $this->addErrorMessage("Грешка: Неуспешно редактиране на профила");
                 }
-                $this->redirect("");
             }
         }
 
