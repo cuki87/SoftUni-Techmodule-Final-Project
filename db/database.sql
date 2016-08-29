@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS monys_kitchen;
+
 CREATE DATABASE monys_kitchen CHARACTER SET utf8;
 
 USE monys_kitchen;
