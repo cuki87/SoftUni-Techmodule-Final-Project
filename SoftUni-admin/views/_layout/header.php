@@ -11,6 +11,21 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script src="<?=APP_ROOT?>/content/jquery-3.1.0.min.js" type="text/javascript"></script>
     <script src="<?=APP_ROOT?>/content/scripts.js" type="text/javascript"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#advancedEdit',
+            theme: 'modern',
+            width: 800,
+            height: 300,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'save table contextmenu directionality emoticons template paste textcolor'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | media fullpage | forecolor backcolor emoticons'
+        });
+    </script>
 </head>
 <body>
     <header>
