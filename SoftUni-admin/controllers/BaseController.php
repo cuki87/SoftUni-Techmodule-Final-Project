@@ -121,7 +121,7 @@ abstract class BaseController
 
     function isAdmin(){
         if (!isset($_SESSION['admin'])){
-            header('Location: /SoftUni/users/login');
+            header('Location: /SoftUni/home/notAdmin');
         }
     }
 }
